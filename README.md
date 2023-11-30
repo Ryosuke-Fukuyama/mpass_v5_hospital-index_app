@@ -19,10 +19,10 @@ $ docker-compose up -d
 https://docs.google.com/spreadsheets/d/1qh3VYRea-rsGQsdphvExZkfswueoD1OG2d5m3yQ-tn4/edit?usp=sharing
 
 ## ワイヤーフレーム
-<img src="doc/wireframe_image.drawio" alt="ER図" width='350px'>
+<img src="doc/wireframe_image.drawio.svg" alt="ワイヤーフレーム" width='350px'>
 
 ## ER図
-<img src="doc/er_image.drawio" alt="ER図" width='350px'>
+<img src="doc/er_image.drawio.svg" alt="ER図" width='350px'>
 
 ## 画面遷移図
-<img src="doc/sf_image.drawio" alt="画面遷移図" width='350px'>
+<img src="doc/sf_image.drawio.svg" alt="画面遷移図" width='350px'>
