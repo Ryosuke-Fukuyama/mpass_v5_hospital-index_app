@@ -16,7 +16,6 @@ ENV APP_ROOT /mpass_index_app
 RUN mkdir -p ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 
-# RUN gem i rails -v "6.1"
 COPY Gemfile Gemfile.lock ${APP_ROOT}/
 
 RUN apk update \
@@ -33,12 +32,12 @@ RUN apk update \
     tzdata \
     mysql-dev \
   && bundle config set --global force_ruby_platform true \
-  # && bundle config set --jobs 4 \
   && gem install bundler:2.0.2 \
   && bundle install -j4 \
   && gem i rubyzip -v "2.3.0" \
   && gem i webdrivers -v "5.3.0" \
   && apk del .build-dependencies \
+  && yarn install \
   && rails webpacker:install
 
 COPY . ${APP_ROOT}
