@@ -1,4 +1,4 @@
-class AeminsController < ApplicationController
+class AdminsController < ApplicationController
   skip_before_action :admin_required, only: %i[create]
 
   # def new
