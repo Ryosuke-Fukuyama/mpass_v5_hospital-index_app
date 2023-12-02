@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     # end
   end
   resources :hospital_labels, only: %i[index create]
-  resource :admin, except: %i[index new destroy]
+  resource :admin, only: %i[create edit update]
   resources :sessions, only: %i[create destroy]
 end

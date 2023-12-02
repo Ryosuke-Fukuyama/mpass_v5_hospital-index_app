@@ -9,8 +9,6 @@ class AeminsController < ApplicationController
     @admin.save if Admin.all.present?
   end
 
-  def show; end
-
   def edit; end
   def update
     if @admin.update(admin_params)

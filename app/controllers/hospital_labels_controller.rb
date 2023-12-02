@@ -1,6 +1,6 @@
 class HospitalLabelsController < ApplicationController
   def index
-    @hospital_labels = HospitalLabel.all.order(name: :asc)
+    @hospital_labels = HospitalLabel.all.order(name: :asc).page(params[:page]).per(20)
   end
 
   def create

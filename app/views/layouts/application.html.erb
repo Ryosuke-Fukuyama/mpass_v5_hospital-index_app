@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <%= render "layouts/global_navi" %>
+      </nav>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+      <nav align="center">
+        <div>
+          <p>DIVE INTO CODE WEF2103</p>
+        </div>
+      </nav>
+    </footer>
   </body>
 </html>
