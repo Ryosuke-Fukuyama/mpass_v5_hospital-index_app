@@ -1,0 +1,41 @@
+<%= form_with(model: @hospital) do |f| %>
+  <% if @hospital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t("errors.template.header", model: Hospital.model_name.human, count: @hospital.errors.count) %></h2>
+      <ul>
+        <% @hospital.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr class="name_field">
+      <td><%= f.label :name, t('view.hospital') + t('view.name_of') %></td>
+      <td><%= f.text_field :name, placeholder: t('view.placeholder.must') + t('view.placeholder.hospital_name'), autofocus: true, autocomplete: "name" %></td>
+    </tr>
+
+    <tr class="access_field">
+      <td><%= f.label :access, t('view.access') %></td>
+      <td><%= f.text_field :access, placeholder: t('view.placeholder.access'), autocomplete: "access" %></td>
+    </tr>
+
+    <tr class="url_field">
+      <td><%= f.label :url, t('view.url') %></td>
+      <td><%= f.text_field :url, placeholder: t('view.placeholder.url'), autocomplete: "introduction" %></td>
+    </tr>
+  </table>
+
+  <div class="field">
+    <p>
+      <%= f.label :hospital_label, t('view.hospital_label') %>
+      <span class="small_font"><%= t('view.must_select') %></span>
+    </p>
+    <%= f.collection_check_boxes :hospital_label_ids, HospitalLabel.all, :id, :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to t('view.back'), :back, class: "button_06", role: "button" %>

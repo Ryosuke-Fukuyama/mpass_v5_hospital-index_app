@@ -1,0 +1,42 @@
+<% if @admin.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this from being saved:</h2>
+    <ul>
+      <% @admin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @admin, local: true) do |f| %>
+  <div class="field">
+    <div>
+      <%= f.label :password %><%= t('view.placeholder.pw_length') %>
+      <span class="small_font"><i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i></span>
+    </div>
+    <%= f.password_field :password, placeholder: "" %>
+    <% if @minimum_password_length %>
+      <div><em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em></div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :password_confirmation %></div>
+    <%= f.password_field :password_confirmation, placeholder: "" %>
+  </div>
+
+  <div class="field">
+    <div>
+      <%= f.label :current_password %>
+      <span class="small_font"><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i></span>
+    </div>
+    <%= f.password_field :current_password, placeholder: "" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('.update') %>
+  </div>
+<% end %>
+
+<%= link_to t('view.back'), :back, class: "button_06", role: "button" %>

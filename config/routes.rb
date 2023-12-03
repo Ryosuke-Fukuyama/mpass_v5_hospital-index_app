@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :hospitals do
+    # collection do
+      # match 'search' => 'hospitals#search', via: [:get, :post], as: :search
+      # get 'maps'
+    # end
+  end
+  resources :hospital_labels, only: %i[index create]
+  resource :admin, only: %i[create edit update]
+  resources :sessions, only: %i[create destroy]
 end
