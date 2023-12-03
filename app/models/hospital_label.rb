@@ -4,4 +4,10 @@ class HospitalLabel < ApplicationRecord
 
   validates :name, presence: true,
                    uniqueness: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    super
+  end
+
+  # private_class_method :ransackable_attributes
 end

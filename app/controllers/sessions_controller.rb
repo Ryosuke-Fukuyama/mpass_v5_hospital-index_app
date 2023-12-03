@@ -4,14 +4,13 @@ class SessionsController < ApplicationController
   # def new; end
   def create
     if admin.authenticate(params[:session][:password])
-      session[:admin_id] = admin.id
+      log_in admin
     else
       flash.now[:danger] = t('notice.login_false')
     end
   end
 
   def destroy
-    session.delete(:admin_id)
-    redirect_to hospitals_path, notice: t('notice.logout')
+    log_out
   end
 end
