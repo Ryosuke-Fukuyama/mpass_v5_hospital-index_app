@@ -1,0 +1,23 @@
+<div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signinModalLabel"><%= t('view.certification') %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+          <div class="field">
+            <%= f.password_field :password, placeholder: "" %>
+          </div>
+          <div class="actions">
+            <%= f.submit t('.sign_in') %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
