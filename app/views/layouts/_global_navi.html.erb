@@ -7,7 +7,7 @@
   <li>
     <%= link_to t('view.hospital') + t('view.index'), hospitals_path, id: "global-navi_hospital-index", class: "btn btn-outline-info", role: "button"  %>
   </li>
-  <% if current_admin? %>
+  <% if logged_in? %>
     <div class="flex-right">
       <li>
         <%= link_to t('view.sign_out'), session_path(current_admin.id), method: :delete, id: "global-navi_admin-sign-out", class: "btn btn-outline-dark", role: "button" %>
