@@ -12,10 +12,10 @@ class Hospital < ApplicationRecord
   # geocoded_by :address
 
   def self.ransackable_attributes(auth_object = nil)
-    super & %w(name)
+    %w(name)
   end
   def self.ransackable_associations(auth_object = nil)
-    [:hospital_label]
+    %w(hospital_labels)
   end
 
   # private_class_method :ransackable_attributes,
