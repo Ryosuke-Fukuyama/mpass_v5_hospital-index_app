@@ -33,7 +33,8 @@ end
   })
 end
 
-admin.create!(
+password = "ghSsfdq3vHj("
+Admin.create!(
   password:              password,
-  password_confirmation: password,
+  password_confirmation: password
 )

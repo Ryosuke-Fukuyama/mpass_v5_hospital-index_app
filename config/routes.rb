@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :hospitals do
+  resources :hospitals, except: %i[show] do
     # collection do
       # match 'search' => 'hospitals#search', via: [:get, :post], as: :search
       # get 'maps'

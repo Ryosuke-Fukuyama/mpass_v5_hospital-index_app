@@ -11,6 +11,7 @@ gem 'sass-rails', '>= 6'
 # gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'geocoder'
 # gem 'gon'

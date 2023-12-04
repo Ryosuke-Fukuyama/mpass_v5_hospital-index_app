@@ -1,14 +1,14 @@
 <h3><%= t('view.hospital') + t('view.index') %></h3>
 
 <div class="search_area">
-  <%= search_form_for @q, url: hospitals_path do |f| %>
+  <%= search_form_for @q do |f| %>
     <div>
       <%= f.label :name_cont, t('view.hospital') + t('view.name_of') + ":" %>
       <%= f.search_field :name_cont, placeholder: t('view.placeholder.part') %>
     </div>
     <div>
       <%= f.label :hospital_labels_id_eq, t('view.hospital_label') + ":" %>
-      <%= f.select :hospital_labels_id_eq, @hospital_labels.map{ |label| [label.name, label.id] }, include_blank: t('view.select') %>
+      <%#= f.select :hospital_labels_id_eq, @hospital_labels.map{ |label| [label.name, label.id] }, include_blank: t('view.select') %>
 
       <%= f.submit %>
     </div>
@@ -36,7 +36,7 @@
               [<%= label.name %>]
             <% end %>
           </td>
-          <% if current_admin? %>
+          <% if logged_in? %>
             <td><%= link_to t('view.edit'), edit_hospital_path(hospital),
               id: "hospital-edit", class: "btn btn-primary", role: "button" %>
             </td>
@@ -54,18 +54,18 @@
   </div>
 </div>
 
-<% if current_admin? %>
+<% if logged_in? %>
   <li><%= link_to t('view.new') + t('view.hospital'), new_hospital_path,
-      id: "staff-sign_in", class: "btn btn-outline-primary", role: "button" %>
+      id: "hospital-new", class: "btn btn-outline-primary", role: "button" %>
   </li>
   <li><%= link_to t('view.hospital_label') + t('view.index'), hospital_labels_path,
-      id: "staff-sign_in", class: "btn btn-outline-primary", role: "button" %>
+      id: "hospital_label-index", class: "btn btn-outline-primary", role: "button" %>
   </li>
   <li><%= link_to t('view.account') + t('view.edit'), edit_admin_path(@admin),
-      id: "staff-sign_in", class: "btn btn-outline-primary", role: "button" %>
+      id: "admin-edit", class: "btn btn-outline-primary", role: "button" %>
   </li>
 <% else %>
-  <li><%= link_to "★", new_session_path,
-      id: "staff-sign_in", class: "btn btn-outline-primary", role: "button" %>
+  <li><%#= link_to "★", _path,
+      id: "admin-sign_in", class: "btn btn-outline-primary", role: "button" %>
   </li>
 <% end %>

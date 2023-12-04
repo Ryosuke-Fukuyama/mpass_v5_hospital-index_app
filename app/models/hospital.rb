@@ -10,4 +10,14 @@ class Hospital < ApplicationRecord
 
   # after_validation :geocode, if: :address_changed?
   # geocoded_by :address
+
+  def self.ransackable_attributes(auth_object = nil)
+    super & %w(name)
+  end
+  def self.ransackable_associations(auth_object = nil)
+    [:hospital_label]
+  end
+
+  # private_class_method :ransackable_attributes,
+  #                      :ransackable_associations
 end
