@@ -10,7 +10,7 @@ class AdminPassesController < ApplicationController
   def edit; end
   def update
     if @admin_pass.update(admin_pass_params)
-      redirect_to admin_pass_path, notice: t('notice.updated')
+      redirect_to hospitals_path, notice: t('notice.updated')
     else
       render :edit
     end
