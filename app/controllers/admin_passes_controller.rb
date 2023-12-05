@@ -1,5 +1,6 @@
 class AdminPassesController < ApplicationController
   skip_before_action :admin_pass_required, only: %i[create]
+  before_action :set_admin_pass, only: %i[edit update]
 
   def create
     @admin_pass = AdminPass.new(admin_pass_params)
@@ -14,9 +15,14 @@ class AdminPassesController < ApplicationController
       render :edit
     end
   end
+
   private
 
   def admin_pass_params
     params.require(:admin_pass).permit(:password, :password_confirmation)
+  end
+
+  def set_admin_pass
+    @admin_pass = current_admin_pass
   end
 end

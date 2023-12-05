@@ -9,7 +9,8 @@
       <div class="modal-body">
         <%= form_with(url: sessions_path, scope: :session) do |f| %>
           <div class="field">
-            <%= f.password_field :password, autofocus: true, placeholder: "" %>
+            <% Rails.env.development? ? password = ENV['DEVELOPMENT_ADMIN_PASS'] : nil %>
+            <%= f.password_field :password, autofocus: true, placeholder: "", value: password %>
           </div>
           <div class="actions", data-bs-dismiss="modal">
             <%= f.submit %>

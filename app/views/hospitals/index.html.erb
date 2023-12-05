@@ -62,7 +62,7 @@
       <%= link_to t('view.hospital_label') + t('view.index'), hospital_labels_path,
           id: "hospital_label-index", class: "btn btn-outline-primary", role: "button"
       %>
-      <%= link_to t('view.account') + t('view.edit'), edit_admin_pass_path(@admin_pass),
+      <%= link_to t('view.account') + t('view.edit'), edit_admin_pass_path(current_admin_pass.id),
           id: "admin_pass-edit", class: "btn btn-outline-primary", role: "button"
       %>
     <% else %>

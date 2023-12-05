@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   def create
     admin_pass = AdminPass.find(1)
     if admin_pass.authenticate(params[:session][:password])
+      reset_session
       log_in admin_pass
       redirect_to hospitals_path, notice: t('notice.sign_in')
     else
