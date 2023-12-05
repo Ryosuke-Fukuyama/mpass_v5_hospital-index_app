@@ -6,7 +6,10 @@ class HospitalLabel < ApplicationRecord
                    uniqueness: true
 
   def self.ransackable_attributes(auth_object = nil)
-    %w(id)
+    super
+  end
+  def self.ransackable_associations(auth_object = nil)
+    []
   end
 
   # private_class_method :ransackable_attributes
