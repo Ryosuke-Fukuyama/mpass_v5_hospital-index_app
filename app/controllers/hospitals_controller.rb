@@ -1,5 +1,5 @@
 class HospitalsController < ApplicationController
-  skip_before_action :admin_required, only: %i[index]
+  skip_before_action :admin_pass_required, only: %i[index]
 
   def index
     @q = Hospital.ransack(params[:q])

@@ -1,4 +1,4 @@
-class Admin < ApplicationRecord
+class AdminPass < ApplicationRecord
   validates :password, on: :create,
                       presence: true,
                       confirmation: true,

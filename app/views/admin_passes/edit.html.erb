@@ -1,15 +1,15 @@
-<% if @admin.errors.any? %>
+<% if @admin_pass.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this from being saved:</h2>
+    <h2><%= pluralize(@admin_pass.errors.count, "error") %> prohibited this from being saved:</h2>
     <ul>
-      <% @admin.errors.full_messages.each do |message| %>
+      <% @admin_pass.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
 <% end %>
 
-<%= form_with(model: @admin, local: true) do |f| %>
+<%= form_with(model: @admin_pass, local: true) do |f| %>
   <div class="field">
     <div>
       <%= f.label :password %><%= t('view.placeholder.pw_length') %>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('.update') %>
+    <%= f.submit %>
   </div>
 <% end %>
 

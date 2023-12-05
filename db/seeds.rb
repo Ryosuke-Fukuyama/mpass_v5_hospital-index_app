@@ -33,8 +33,8 @@ end
   })
 end
 
-password = "ghSsfdq3vHj("
-Admin.create!(
+password = ENV['DEVELOPMENT_ADMIN_PASS']
+AdminPass.create!(
   password:              password,
   password_confirmation: password
 )

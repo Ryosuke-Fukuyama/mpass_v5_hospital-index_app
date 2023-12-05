@@ -27,7 +27,7 @@ gem 'aws-sdk-s3', require: false
 gem 'unicorn'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capistrano', "~> 3.10", require: false
   gem 'capistrano-rails', "~> 1.6", require: false
   gem 'capistrano-safe-deploy-to'

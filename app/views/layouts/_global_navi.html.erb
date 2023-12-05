@@ -10,7 +10,7 @@
   <% if logged_in? %>
     <div class="flex-right">
       <li>
-        <%= link_to t('view.sign_out'), session_path(current_admin.id), method: :delete, id: "global-navi_admin-sign-out", class: "btn btn-outline-dark", role: "button" %>
+        <%= link_to t('view.sign_out'), session_path(current_admin_pass.id), method: :delete, id: "global-navi_admin_pass-sign-out", class: "btn btn-outline-dark", role: "button" %>
       </li>
     </div>
   <% end %>
