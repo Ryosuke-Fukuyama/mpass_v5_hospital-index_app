@@ -7,12 +7,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <%= form_with(url: sessions_path, scope: :session) do |f| %>
           <div class="field">
-            <%= f.password_field :password, placeholder: "" %>
+            <%= f.password_field :password, autofocus: true, placeholder: "" %>
           </div>
-          <div class="actions">
-            <%= f.submit t('.sign_in') %>
+          <div class="actions", data-bs-dismiss="modal">
+            <%= f.submit %>
           </div>
         <% end %>
       </div>

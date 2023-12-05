@@ -34,7 +34,7 @@ end
 end
 
 password = "ghSsfdq3vHj("
-Admin.create!(
+AdminPass.create!(
   password:              password,
   password_confirmation: password
 )

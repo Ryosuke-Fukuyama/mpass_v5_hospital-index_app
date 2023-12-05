@@ -21,7 +21,7 @@ ja:
         type_validate: はjeg、jpegまたはpng形式でアップロードしてください。
         size_validate: は1つのファイル100KB以内にしてください。
         length_validate: は5枚以内になるよう調整してください。
-        admin_size: 管理人アカウントがいなくなります。
+        admin_pass_size: 管理人アカウントがいなくなります。
         master_size: マスターアカウントがいなくなります。
   date:
     abbr_day_names:
@@ -132,7 +132,7 @@ ja:
     paied: 支払いが完了しました！
     guest_patient: ゲストユーザーとしてログインしました.
     guest_staff: ゲストスタッフとしてログインしました。
-    guest_admin_staff: ゲスト管理スタッフとしてログインしました。
+    guest_admin_pass_staff: ゲスト管理スタッフとしてログインしました。
     guest_master: ゲストマスターとしてログインしました。
   alert:
     already: 既に申し込み済みです。(※同時に複数の病院の受付はできません。)
@@ -263,7 +263,7 @@ ja:
     account: アカウント
     addition: 追加
     address: 住所
-    admin: 管理権限
+    admin_pass: 管理権限
     age: 年齢
     back: 戻る
     cancel: 解除
@@ -275,7 +275,7 @@ ja:
     favorite: ☆お気に入り
     first: (初診用)
     gender: 性別
-    guest_admin_staff: ゲスト管理スタッフ
+    guest_admin_pass_staff: ゲスト管理スタッフ
     guest_staff: ゲストスタッフ
     guest_master: ゲストマスター
     guest_patient: ゲストユーザー
