@@ -1,0 +1,14 @@
+<table>
+  <tbody>
+    <tr>
+      <% hospital_labels.each.with_index(1) do |label, i| %>
+        <td align="center">
+          <%= label.name %>
+        </td>
+        <% if i % 5 == 0 %>
+          <tr></tr>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -3,7 +3,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-// window.jQuery = window.$ = require('jquery')
+import 'jquery';
 import 'bootstrap';
 import '../stylesheets/application.scss';
 
