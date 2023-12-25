@@ -9,9 +9,10 @@ class HospitalLabelsController < ApplicationController
 
   def create
     @hospital_label = HospitalLabel.create(hospital_label_params)
-    @hospital_label.save ? flash[:notice] = t('notice.saved') : flash[:alert] = t('alert.false')
+    @hospital_label.save
+    # ? flash[:notice] = t('notice.saved') : flash[:alert] = t('alert.false')
 
-    @hospital_labels = HospitalLabel.all
+    @hospital_labels = HospitalLabel.all.order(name: :asc).page(params[:page]).per(20)
   end
 
   private
