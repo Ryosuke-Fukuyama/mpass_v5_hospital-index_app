@@ -247,10 +247,11 @@ ja:
       we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
   view:
     addition: 追加
-    admin_pass: 管理権限
+    admin_pass: 管理パス
     back: 戻る
     cancel: 解除
     certification: 認証
+    change: 変更
     check_delete: チェックをつけた写真は削除されます。
     create: 作成
     destroy: 削除
