@@ -10,38 +10,39 @@
     </div>
   <% end %>
 
-  <table>
-    <tr class="name_field">
-      <td><%= f.label :name, t('view.hospital') + t('view.name_of') + t('view.placeholder.must') %></td>
-      <td><%= f.text_field :name, placeholder: t('view.placeholder.hospital_name'), autofocus: true, autocomplete: "name" %></td>
-    </tr>
+  <div>
+    <div class="name_field mb-3">
+      <%= f.label :name, t('view.hospital') + t('view.name_of') + t('view.placeholder.must'), class: "form-label" %>
+      <%= f.text_field :name, placeholder: t('view.placeholder.hospital_name'), autofocus: true, autocomplete: "name", class: "form-control" %>
+    </div>
 
-    <tr class="access_field">
-      <td><%= f.label :access %></td>
-      <td><%= f.text_field :access, placeholder: t('view.placeholder.access'), autocomplete: "access" %></td>
-    </tr>
+    <div class="access_field mb-3">
+      <%= f.label :access, class: "form-label" %>
+      <%= f.text_field :access, placeholder: t('view.placeholder.access'), autocomplete: "access", class: "form-control" %>
+    </div>
 
-    <tr class="url_field">
-      <td><%= f.label :url %></td>
-      <td><%= f.text_field :url, placeholder: t('view.placeholder.url'), autocomplete: "introduction" %></td>
-    </tr>
-  </table>
+    <div class="url_field mb-3">
+      <%= f.label :url, class: "form-label" %>
+      <%= f.text_field :url, placeholder: t('view.placeholder.url'), autocomplete: "introduction", class: "form-control" %>
+    </div>
+  </div>
 
-  <div class="field">
-      <%= f.label :hospital_label, t('view.hospital_label') %>
+  <div class="labels_field mb-3">
+      <%= f.label :hospital_label, t('view.hospital_label'), class: "form-label" %>
       <span class="small_font"><%= t('view.must_select') %></span>
-    <div class="width500">
+    <div>
       <%= f.collection_check_boxes :hospital_label_ids, HospitalLabel.all, :id, :name, { include_hidden: false } do |builder|
         tag.div class: 'form-check-inline' do
           checked = params[:hospital_label_ids]&.include?(builder.value.to_s)
 
-          builder.check_box(checked: checked, class: 'form-check-input') + builder.label(class: 'form-check-label')
+          builder.check_box(checked: checked, class: 'form-check-input') + builder.label(class: 'form-check-label form-label')
         end
       end %>
     </div>
   </div>
-
-  <%= f.submit %>
+  <div align="center">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <%= link_to t('view.back'), :back, class: "button_06", role: "button" %>

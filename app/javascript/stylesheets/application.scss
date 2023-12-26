@@ -10,8 +10,19 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+.logo {
+  font-size: xx-large;
+}
+header {
+  background-color: aquamarine;
+  color: white;
+}
+footer {
+  background-color: aquamarine;
+  color: white;
+}
 .container {
-  padding: 30px 20px;
+  padding: 0px 20px 30px 20px;
 }
 nav ul {
   margin-top: 0;
@@ -26,10 +37,22 @@ ul li {
   list-style: none;
   margin: 5px;
 }
-.width500 {
-  width: 500px;
-}
 .slender_table {
   display: -webkit-flex;
   display: flex;
+}
+
+.button_06 {
+	text-decoration: none;
+	padding: 5px 13px;
+	border-radius: 100vh;
+	border-bottom: 5px solid #696969;
+	background: #d3d3d3;
+	color: black;
+}
+a.button_06:hover {
+  text-decoration: none;
+	margin-top: 5px;
+	border-bottom: 1px solid #c0c0c0;
+	color: black;
 }

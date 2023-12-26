@@ -264,7 +264,7 @@ ja:
     link: リンク
     maps: 最寄り検索
     menu: メニュー
-    must_select: 最低一つ選択してください。(複数選択可)
+    must_select: ※最低一つ選択してください。(複数選択可)
     name: 名前
     name_of: 名
     new: 新規

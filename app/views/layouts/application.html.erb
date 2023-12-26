@@ -14,14 +14,15 @@
   <body>
     <div class="container">
       <header>
+        <p align="center" class="logo">MPASS</p>
+      </header>
+      <div class="container">
         <nav>
           <%= render "layouts/global_navi" %>
         </nav>
-      </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-      <div class="container">
         <%= yield %>
       </div>
       <footer>
