@@ -12,17 +12,15 @@
 <%= form_with(model: @admin_pass, local: true) do |f| %>
   <div class="field">
     <div>
-      <%= f.label :password %><%= t('view.placeholder.pw_length') %>
-      <span class="small_font"><i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i></span>
+      <%= f.label :password %>(<%= t('view.password_format') + t('view.password_length') %>)
     </div>
     <%= f.password_field :password, placeholder: "" %>
-    <% if @minimum_password_length %>
-      <div><em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em></div>
-    <% end %>
   </div>
 
   <div class="field">
-    <div><%= f.label :password_confirmation %></div>
+    <div>
+      <%= f.label :password_confirmation %>
+    </div>
     <%= f.password_field :password_confirmation, placeholder: "" %>
   </div>
 
