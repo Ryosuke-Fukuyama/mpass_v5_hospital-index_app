@@ -246,6 +246,7 @@ ja:
       leave_blank_if_you_don_t_want_to_change_it: 空欄のままなら変更しません
       we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
   view:
+    access: アクセス
     addition: 追加
     admin_menu: 管理メニュー
     admin_pass: 管理パス
