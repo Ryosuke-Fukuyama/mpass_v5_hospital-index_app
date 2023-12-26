@@ -130,6 +130,8 @@ ja:
     destroyed: 削除しました！
     on_favorite: お気に入りに追加しました！
     off_favorite: お気に入りから削除しました！
+    sign_in: ログインしました！
+    sign_out: ログアウトしました
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -248,6 +250,7 @@ ja:
     admin_pass: 管理権限
     back: 戻る
     cancel: 解除
+    certification: 認証
     check_delete: チェックをつけた写真は削除されます。
     create: 作成
     destroy: 削除
