@@ -9,28 +9,12 @@
   <% end %>
 </div>
 
-<div class="slender_table">
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('view.hospital_label') + t('view.name_of') %><th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @hospital_labels.each.with_index do |label, i| %>
-        <tr>
-          <td align="center"><%= label.name %></td>
-        </tr>
-        <% if i+1 % 5 == 0 %>
-          <br>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+<div id="hospital_labels_index_table", class="slender_table">
+  <%= render "hospital_labels/index_table", hospital_labels: @hospital_labels %>
 </div>
 
 <div align="center", class="paginate">
   <%= paginate @hospital_labels %>
 </div>
 
-<%= link_to t('view.new') + t('view.hospital_label'), new_hospital_label_path, class: "btn btn-outline-primary", role: "button" %>
+<%= render "hospital_labels/new", hospital_label: @hospital_label %>

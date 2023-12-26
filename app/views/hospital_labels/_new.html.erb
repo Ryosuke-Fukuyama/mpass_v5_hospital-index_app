@@ -1,0 +1,18 @@
+<%= form_with model: hospital_label, local: false, html: { id: 'new_form' } do |f| %>
+  <%= f.text_field :name, placeholder: t('view.placeholder.new_hospital_label'),
+      id: "new_label_textfield"
+  %>
+  <%= f.submit %>
+<% end %>
+
+<script>
+$(function() {
+  $('#new_form').on('submit', function() {
+    var new_hospital_label = document.getElementById('new_label_textfield').value;
+    var submitMessage = window.confirm(new_hospital_label + 'で宜しいですか？');
+    if (!submitMessage) {
+      return false;
+    };
+  });
+});
+</script>

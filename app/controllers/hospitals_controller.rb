@@ -1,5 +1,6 @@
 class HospitalsController < ApplicationController
   skip_before_action :admin_pass_required, only: %i[index]
+  before_action :set_hospital_params, only: %i[edit update destroy]
 
   def index
     @q = Hospital.ransack(params[:q])
@@ -25,7 +26,7 @@ class HospitalsController < ApplicationController
     @hospital.hospital_labelings.delete_all unless params[:hospital][:hospital_label_ids]
 
     if @hospital.update(hospital_params)
-      redirect_to hospital_path(@hospital), notice: t('notice.updated')
+      redirect_to hospitals_path, notice: t('notice.updated')
     else
       render :edit
     end
@@ -45,5 +46,9 @@ class HospitalsController < ApplicationController
       :url,
       hospital_label_ids: []
     )
+  end
+
+  def set_hospital_params
+    @hospital = Hospital.find(params[:id])
   end
 end
