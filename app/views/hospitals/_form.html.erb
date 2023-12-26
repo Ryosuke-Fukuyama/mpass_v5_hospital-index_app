@@ -12,8 +12,8 @@
 
   <table>
     <tr class="name_field">
-      <td><%= f.label :name, t('view.hospital') + t('view.name_of') %></td>
-      <td><%= f.text_field :name, placeholder: t('view.placeholder.must') + t('view.placeholder.hospital_name'), autofocus: true, autocomplete: "name" %></td>
+      <td><%= f.label :name, t('view.hospital') + t('view.name_of') + t('view.placeholder.must') %></td>
+      <td><%= f.text_field :name, placeholder: t('view.placeholder.hospital_name'), autofocus: true, autocomplete: "name" %></td>
     </tr>
 
     <tr class="access_field">

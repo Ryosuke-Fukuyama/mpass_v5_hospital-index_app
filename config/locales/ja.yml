@@ -247,6 +247,7 @@ ja:
       we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
   view:
     addition: 追加
+    admin_menu: 管理メニュー
     admin_pass: 管理パス
     back: 戻る
     cancel: 解除
@@ -287,7 +288,7 @@ ja:
       images_rules: (※５枚まで/100Kbytsまで/jeg・jpegまたはpng形式)
       integer: 半角
       mandatory: ※入力してください
-      must: 必須)
+      must: (※必須)
       part: 部分一致
       password_confirmation: 同じものを入力してください
       url: https://www.〜
