@@ -13,22 +13,19 @@
 
   <body>
     <header>
-      <nav>
-        <%= render "layouts/global_navi" %>
-      </nav>
+      <p align="center" class="logo">MPASS</p>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <nav>
+      <%= render "layouts/global_navi" %>
+    </nav>
     <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <%= yield %>
     </div>
     <footer>
-      <nav align="center">
-        <div>
-          <p>DIVE INTO CODE WEF2103</p>
-        </div>
-      </nav>
+      <p align="center">DIVE INTO CODE WEF2103</p>
     </footer>
   </body>
 </html>

@@ -1,3 +1,9 @@
 <h3><%= t('view.hospital') + t('view.edit') %></h3>
 
 <%= render 'hospitals/form' %>
+
+<div align="right">
+  <%= link_to t('view.destroy'), hospital_path(@hospital), method: :delete, data: { confirm: t('confirm.delete') },
+    id: "hospital-destroy", class: "btn btn-danger", role: "button"
+  %>
+</div>

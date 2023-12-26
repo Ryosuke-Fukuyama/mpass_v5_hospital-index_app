@@ -6,12 +6,15 @@ ja:
     attributes:
       hospital:
         name: 病院名
-        email: メールアドレス
-        tel: 電話番号
+        access: アクセス
+        url: URL
         address: 住所
-        images: 写真
       hospital_label:
-        name: 名前
+        name: 診療科名
+      admin_pass:
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: パスワード（確認用）
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -22,7 +25,6 @@ ja:
         size_validate: は1つのファイル100KB以内にしてください。
         length_validate: は5枚以内になるよう調整してください。
         admin_pass_size: 管理人アカウントがいなくなります。
-        master_size: マスターアカウントがいなくなります。
   date:
     abbr_day_names:
     - 日
@@ -126,16 +128,10 @@ ja:
     saved: 新規登録しました！
     updated: 更新しました！
     destroyed: 削除しました！
-    new_interview: 受付を完了しました!
     on_favorite: お気に入りに追加しました！
     off_favorite: お気に入りから削除しました！
-    paied: 支払いが完了しました！
-    guest_patient: ゲストユーザーとしてログインしました.
-    guest_staff: ゲストスタッフとしてログインしました。
-    guest_admin_pass_staff: ゲスト管理スタッフとしてログインしました。
-    guest_master: ゲストマスターとしてログインしました。
-  alert:
-    already: 既に申し込み済みです。(※同時に複数の病院の受付はできません。)
+    sign_in: ログインしました！
+    sign_out: ログアウトしました
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -240,136 +236,60 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  enums:
-    guide_status:
-      status:
-        initial: 初期
-        calling: 呼出
-        payment: 決済
-        pending: 保留
-        noshow: 無断キャンセル
-        complete: 完了
-    health_interview:
-      gender:
-        man: 男性
-        woman: 女性
   confirm:
     delete: 削除しますか？
     change_status: ステータスの値は正しいですか？
   message:
-    verification_failed: reCAPTCHA認証に失敗しました！
+    verification_failed: reCAPTCHA認証に失敗しました
+  admin_passes:
+    edit:
+      leave_blank_if_you_don_t_want_to_change_it: 空欄のままなら変更しません
+      we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
   view:
     access: アクセス
-    account: アカウント
     addition: 追加
-    address: 住所
-    admin_pass: 管理権限
-    age: 年齢
+    admin_menu: 管理メニュー
+    admin_pass: 管理パス
     back: 戻る
     cancel: 解除
+    certification: 認証
+    change: 変更
     check_delete: チェックをつけた写真は削除されます。
     create: 作成
     destroy: 削除
     edit: 編集
-    email: メールアドレス
     favorite: ☆お気に入り
-    first: (初診用)
-    gender: 性別
-    guest_admin_pass_staff: ゲスト管理スタッフ
-    guest_staff: ゲストスタッフ
-    guest_master: ゲストマスター
-    guest_patient: ゲストユーザー
-    health_interviews:
-    hospital_label: 診療科
-    hide: 非表示
-    history: 来院履歴
-    honorific: 様の
     hospital: 病院
     hospital_label: 診療科
-    image: 画像
     index: 一覧
-    introduction: 情報
     link: リンク
     maps: 最寄り検索
-    master: マスター
     menu: メニュー
-    must_select: 最低一つ選択してください。(複数選択可)
-    my_page: マイページ
+    must_select: ※最低一つ選択してください。(複数選択可)
     name: 名前
     name_of: 名
     new: 新規
-    new_health_interview: 問診票
     none: 未登録
     only: 専用
     page: ページ
-    patient: 患者
-    payment: 支払い
-    people_num: 人目です
-    please_new: パスワード（新しいものを設定してください)
-    price: 金額
-    reception: 受付はこちら
-    reservation: 予約
-    reverse: 裏面
+    password_format: 半角大小英数記号
+    password_length: 8文字以上
     search: 検索
-    second: (再診用)
     select: 選択する
     show: 詳細
     sign_in: ログイン
     sign_out: ログアウト
     sign_up: 新規アカウント
-    size: 来院回数
-    staff: スタッフ
-    status: ステータス
-    symptoms: 症状
-    tel: 電話番号
     top: トップページ
-    tutorial: 使い方
-    visit_date: 来院日
-    your_number_is: 整理券番号は
-    waiting: オンライン待合室
-    waiting_befor: 現在の順番は
     placeholder:
       access: 〇〇駅からバスで〇分
       address: 〇〇市〇〇 xx-xx-xx
-      comment: 気になる点等医師に伝えたいことがございましたら、お気軽にご記入ください。
-      condition: 持病や、服用中のお薬等あればご記入ください。
-      email: xxxx@example.co.jp
       hospital_label_name: 〇〇科
       hospital_name: 〇〇病院
       images_rules: (※５枚まで/100Kbytsまで/jeg・jpegまたはpng形式)
       integer: 半角
-      introduction: "URL: https:// ~~~~"
       mandatory: ※入力してください
-      must: 必須)
-      name: 全角カタカナ
-      name_or_email: お名前かメールアドレス
+      must: (※必須)
       part: 部分一致
-      password: 各半角大小英数記号
       password_confirmation: 同じものを入力してください
-      patient_name: フルネーム(漢字)
-      pw_length: (8文字以上)
-      staff_name: 完全同名不可
-      symptoms: 症状や、発症時期等ご記入ください。
-      tel: ハイフンなし
-    message:
-      initial: |
-            お申し込み頂きありがとうございます。ご案内状況をご確認の上お越しください。
-            今月初めてのご来院の場合は保険証をお忘れなきようお持ちください。
-            ご案内時にご不在の場合、次の方をご案内させて頂きます。
-      calling: |
-            こちらの画面をご提示の上、診察室へお入り下さい。
-      pending: |
-            お呼び出しさせて頂きましたが確認が取れなかった為、保留扱いとさせて頂いております。
-            ご来院されましたらお近くのスタッフまでお声掛け下さい。
-            ※混雑状況によってはお申し込みを取り消しとさせて頂く場合がございます。予めご了承下さい。
-      noshow: |
-           お呼び出しから一定時間内に確認が取れませんでしたのでキャンセルとさせて頂きます。
-           無断キャンセルが続きますとサービスがご利用頂けなくなる場合がございます。
-      payment: |
-            本日のお会計は下記の通りになります。
-            ご確認の上、お支払いお願い致します。
-      calculating: |
-         ご不便をお掛けして申し訳ありません。
-         お会計は現在精算中でございます。もう暫くお待ちくださいませ。
-      complete: |
-             お支払いが確認できました。お大事にしてください。
+      url: https://www.〜

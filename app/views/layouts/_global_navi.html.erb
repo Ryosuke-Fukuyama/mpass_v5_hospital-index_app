@@ -1,17 +1,45 @@
-<p align="center" class="logo">MPASS</p>
-<ul>
-  <li>
-    Top
-    <%#= link_to t('view.top'), root_path, id: "global-navi_top", class: "btn btn-outline-info", role: "button"  %>
+<ul class="nav">
+  <li class="nav-item">
+    <%= link_to t('view.top'), 'https://www.???.co.jp/', id: "global-navi_top", class: "nav-link disabled" %>
   </li>
-  <li>
-    <%= link_to t('view.hospital') + t('view.index'), hospitals_path, id: "global-navi_hospital-index", class: "btn btn-outline-info", role: "button"  %>
+  <li class="nav-item">
+    <%= link_to t('view.hospital') + t('view.index'), hospitals_path, id: "global-navi_hospital-index", class: "btn btn-outline-warning" %>
   </li>
-  <% if logged_in? %>
-    <div class="flex-right">
-      <li>
-        <%= link_to t('view.sign_out'), session_path(current_admin_pass.id), method: :delete, id: "global-navi_admin_pass-sign-out", class: "btn btn-outline-dark", role: "button" %>
-      </li>
-    </div>
-  <% end %>
+
+  <div class="nav-item btn-group flex-right">
+    <% if logged_in? %>
+      <button type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= t('view.admin_menu') %>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to t('view.new') + t('view.hospital'), new_hospital_path,
+            id: "global-navi_hospital-new", class: "dropdown-item"
+          %>
+        </li>
+        <li>
+          <%= link_to t('view.hospital_label') + t('view.index'), hospital_labels_path,
+            id: "global-navi_hospital_label-index", class: "dropdown-item"
+          %>
+        </li>
+        <li>
+          <%= link_to t('view.admin_pass') + t('view.change'), edit_admin_pass_path(current_admin_pass.id),
+            id: "global-navi_admin_pass-edit", class: "dropdown-item"
+          %>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li>
+          <%= link_to t('view.sign_out'), session_path(current_admin_pass.id), method: :delete,
+            id: "global-navi_admin_pass-sign-out", class: "dropdown-item"
+          %>
+        </li>
+      </ul>
+    <% else %>
+      <%= link_to "★", "", "data-bs-toggle": "modal", "data-bs-target": "#signinModal",
+        id: "admin_pass-sign_in", class: "btn btn-outline-light", role: "button"
+      %><%= render 'hospitals/sign_in_modal' %>
+    <% end %>
+  </div>
 </ul>

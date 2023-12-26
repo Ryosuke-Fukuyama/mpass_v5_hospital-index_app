@@ -1,23 +1,18 @@
 <h3><%= t('view.hospital') + t('view.index') %></h3>
 
-<div class="search_area">
+<div class="search_area navbar navbar-light bg-light">
   <%= search_form_for @q do |f| %>
-    <div>
-      <%= f.label :name_cont, t('view.hospital') + t('view.name_of') + ":" %>
-      <%= f.search_field :name_cont, placeholder: t('view.placeholder.part') %>
-    </div>
-    <div>
-      <%= f.label :hospital_labels_id_eq, t('view.hospital_label') + ":" %>
-      <%= f.select :hospital_labels_id_eq, @hospital_labels.map{ |label| [label.name, label.id] }, include_blank: t('view.select') %>
-
-      <%= f.submit %>
-    </div>
+    <%= f.label :name_cont, t('view.hospital') + t('view.name_of') + ":" %>
+    <%= f.search_field :name_cont, placeholder: t('view.placeholder.part'), class: "me-2" %>
+    <%= f.label :hospital_labels_id_eq, t('view.hospital_label') + ":" %>
+    <%= f.select :hospital_labels_id_eq, @hospital_labels.map{ |label| [label.name, label.id] }, include_blank: t('view.select') %>
+    <%= f.submit class: "btn btn-outline-success btn-sm" %>
   <% end %>
 
   <%#= link_to t('view.maps'), maps_hospitals_path %>
 </div>
 
-<div class="index_area">
+<div class="hospital-index_area">
   <table>
     <thead>
       <tr>
@@ -29,45 +24,28 @@
     <tbody>
       <% @hospitals.each do |hospital| %>
         <tr>
-          <td id=<%= "hospital-index_item-name-#{hospital.id}" %>><%= hospital.name %></td>
-          <td id=<%= "hospital-index_item-access-#{hospital.id}" %> class="small_font"><%= hospital.access %></td>
-          <td id=<%= "hospital-index_item-#{hospital.id}-label-name" %> class="small_font">
+          <td id=<%= "hospital-index_item-name-#{hospital.id}" %>, class="name">
+            <%= hospital.name %>
+          </td>
+          <td id=<%= "hospital-index_item-access-#{hospital.id}" %>, class="access small_font">
+            <%= hospital.access %>
+          </td>
+          <td id=<%= "hospital-index_item-#{hospital.id}-label-name" %>, class="labels small_font">
             <% hospital.hospital_labels.each do |label| %>
               [<%= label.name %>]
             <% end %>
           </td>
           <% if logged_in? %>
-            <td><%= link_to t('view.edit'), edit_hospital_path(hospital),
-              id: "hospital-edit", class: "btn btn-primary", role: "button" %>
-            </td>
-            <td><%= link_to t('view.destroy'), hospital_path(hospital), method: :delete, data: { confirm: t('confirm.delete') },
-              id: "hospital-destroy", class: "btn btn-danger", role: "button" %>
+            <td class="edit-btn">
+              <%= link_to t('view.edit'), edit_hospital_path(hospital),
+                id: "hospital-edit", class: "btn btn-secondary btn-sm", role: "button"
+              %>
             </td>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-  <div align="center", class="paginate">
-    <%= paginate @hospitals %>
-  </div>
 </div>
 
-<div >
-  <% if logged_in? %>
-      <%= link_to t('view.new') + t('view.hospital'), new_hospital_path,
-          id: "hospital-new", class: "btn btn-outline-primary", role: "button"
-      %>
-      <%= link_to t('view.hospital_label') + t('view.index'), hospital_labels_path,
-          id: "hospital_label-index", class: "btn btn-outline-primary", role: "button"
-      %>
-      <%= link_to t('view.account') + t('view.edit'), edit_admin_pass_path(current_admin_pass.id),
-          id: "admin_pass-edit", class: "btn btn-outline-primary", role: "button"
-      %>
-    <% else %>
-      <%= link_to "★", "", "data-bs-toggle": "modal", "data-bs-target": "#signinModal",
-          id: "admin_pass-sign_in", class: "btn btn-outline-primary", role: "button"
-      %><%= render 'hospitals/sign_in_modal' %>
-  <% end %>
-</div>
+<%= paginate @hospitals %>
