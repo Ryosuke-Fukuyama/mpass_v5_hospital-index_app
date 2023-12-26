@@ -12,23 +12,25 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <%= render "layouts/global_navi" %>
-      </nav>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <div class="container">
-      <%= yield %>
+      <header>
+        <nav>
+          <%= render "layouts/global_navi" %>
+        </nav>
+      </header>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+      <footer>
+        <nav align="center">
+          <div>
+            <p>DIVE INTO CODE WEF2103</p>
+          </div>
+        </nav>
+      </footer>
     </div>
-    <footer>
-      <nav align="center">
-        <div>
-          <p>DIVE INTO CODE WEF2103</p>
-        </div>
-      </nav>
-    </footer>
   </body>
 </html>
