@@ -55,19 +55,9 @@
 </div>
 
 <div >
-  <% if logged_in? %>
-      <%= link_to t('view.new') + t('view.hospital'), new_hospital_path,
-          id: "hospital-new", class: "btn btn-outline-primary", role: "button"
-      %>
-      <%= link_to t('view.hospital_label') + t('view.index'), hospital_labels_path,
-          id: "hospital_label-index", class: "btn btn-outline-primary", role: "button"
-      %>
-      <%= link_to t('view.account') + t('view.edit'), edit_admin_pass_path(current_admin_pass.id),
-          id: "admin_pass-edit", class: "btn btn-outline-primary", role: "button"
-      %>
-    <% else %>
-      <%= link_to "★", "", "data-bs-toggle": "modal", "data-bs-target": "#signinModal",
-          id: "admin_pass-sign_in", class: "btn btn-outline-primary", role: "button"
-      %><%= render 'hospitals/sign_in_modal' %>
+  <% if !logged_in? %>
+    <%= link_to "★", "", "data-bs-toggle": "modal", "data-bs-target": "#signinModal",
+      id: "admin_pass-sign_in", class: "btn btn-outline-primary", role: "button"
+    %><%= render 'hospitals/sign_in_modal' %>
   <% end %>
 </div>
