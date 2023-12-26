@@ -6,9 +6,9 @@
     <%= link_to t('view.hospital') + t('view.index'), hospitals_path, id: "global-navi_hospital-index", class: "btn btn-outline-warning" %>
   </li>
 
-  <% if logged_in? %>
-    <div class="nav-item btn-group flex-right">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="nav-item btn-group flex-right">
+    <% if logged_in? %>
+      <button type="button" class="btn btn-secondary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
         <%= t('view.admin_menu') %>
       </button>
       <ul class="dropdown-menu">
@@ -36,6 +36,10 @@
           %>
         </li>
       </ul>
-    </div>
-  <% end %>
+    <% else %>
+      <%= link_to "★", "", "data-bs-toggle": "modal", "data-bs-target": "#signinModal",
+        id: "admin_pass-sign_in", class: "btn btn-outline-light", role: "button"
+      %><%= render 'hospitals/sign_in_modal' %>
+    <% end %>
+  </div>
 </ul>

@@ -10,30 +10,30 @@
 <% end %>
 
 <%= form_with(model: @admin_pass, local: true) do |f| %>
-  <div class="field">
+  <div class="password_field mb-3">
     <div>
-      <%= f.label :password %>(<%= t('view.password_format') + t('view.password_length') %>)
+      <%= f.label :password, class: "form-label" %>(<%= t('view.password_format') + t('view.password_length') %>)
     </div>
-    <%= f.password_field :password, placeholder: "" %>
+    <%= f.password_field :password, placeholder: "", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="password_field mb-3">
     <div>
-      <%= f.label :password_confirmation %>
+      <%= f.label :password_confirmation, class: "form-label" %>
     </div>
-    <%= f.password_field :password_confirmation, placeholder: "" %>
+    <%= f.password_field :password_confirmation, placeholder: "", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="password_field mb-3">
     <div>
-      <%= f.label :current_password %>
+      <%= f.label :current_password, class: "form-label" %>
       <span class="small_font"><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i></span>
     </div>
-    <%= f.password_field :current_password, placeholder: "" %>
+    <%= f.password_field :current_password, placeholder: "", class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div align="center">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 
