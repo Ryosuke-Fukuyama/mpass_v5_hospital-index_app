@@ -38,10 +38,7 @@
           </td>
           <% if logged_in? %>
             <td><%= link_to t('view.edit'), edit_hospital_path(hospital),
-              id: "hospital-edit", class: "btn btn-primary", role: "button" %>
-            </td>
-            <td><%= link_to t('view.destroy'), hospital_path(hospital), method: :delete, data: { confirm: t('confirm.delete') },
-              id: "hospital-destroy", class: "btn btn-danger", role: "button" %>
+              id: "hospital-edit", class: "btn btn-secondary btn-sm", role: "button" %>
             </td>
           <% end %>
         </tr>
