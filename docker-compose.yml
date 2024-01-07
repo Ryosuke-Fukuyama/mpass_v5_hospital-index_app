@@ -27,6 +27,11 @@ services:
     stdin_open: true
     depends_on:
       - 'db'
+      - selenium_chrome
+  selenium_chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - 4444:4444
 volumes:
   mysql-data:
     driver: local

@@ -35,7 +35,7 @@ RUN apk update \
   && gem install bundler:2.0.2 \
   && bundle install -j4 \
   && gem i rubyzip -v "2.3.0" \
-  && gem i webdrivers -v "5.3.0" \
+  # && gem i webdrivers -v "5.2.0" \
   && apk del .build-dependencies \
   && yarn install \
   && rails webpacker:install

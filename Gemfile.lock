@@ -379,7 +379,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.4)
-  byebug
   capistrano (~> 3.10)
   capistrano-bundler
   capistrano-rails (~> 1.6)
