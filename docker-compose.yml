@@ -5,17 +5,12 @@ services:
     image: mysql:8.0
     volumes:
       - mysql-data:/var/lib/mysql
-      # - ./my.cnf:/etc/mysql/conf.d/my.cnf
-      # - ./init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      # - MYSQL_DATABASE=${DB_NAME}
-      # - MYSQL_USER=${DB_USER}
-      # - MYSQL_PASSWORD=${DB_PASSWORD}
       TZ: 'Asia/Tokyo'
     # ports:
     #   - ${DB_PORT}:3306
-    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    # command: --default-authentication-plugin=mysql_native_password
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -27,9 +22,11 @@ services:
     stdin_open: true
     depends_on:
       - 'db'
-      - selenium_chrome
-  selenium_chrome:
-    image: selenium/standalone-chrome:latest
+      - chromium
+  chromium:
+    image: seleniarm/standalone-chromium # M1対応イメージ
+    volumes:
+    - ./tmp/downloads:/usr/src/mpass_index_app/tmp/downloads
     ports:
       - 4444:4444
 volumes:
