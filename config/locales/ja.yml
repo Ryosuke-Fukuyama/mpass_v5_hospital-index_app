@@ -125,13 +125,15 @@ ja:
       month: 月
       year: 年
   notice:
-    saved: 新規登録しました！
+    saved: 登録しました！
     updated: 更新しました！
     destroyed: 削除しました！
     on_favorite: お気に入りに追加しました！
     off_favorite: お気に入りから削除しました！
     sign_in: ログインしました！
     sign_out: ログアウトしました
+  alert:
+    false: 失敗しました！
   errors:
     format: "%{attribute}%{message}"
     messages:

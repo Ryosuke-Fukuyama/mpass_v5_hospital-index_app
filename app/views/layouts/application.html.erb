@@ -19,9 +19,9 @@
       <%= render "layouts/global_navi" %>
     </nav>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
+      <div id="error_message_area">
+        <%= render "layouts/error_message" %>
+      </div>
       <%= yield %>
     </div>
     <footer>

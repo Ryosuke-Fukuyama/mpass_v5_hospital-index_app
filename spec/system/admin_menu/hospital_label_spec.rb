@@ -18,7 +18,7 @@ RSpec.describe 'AdminPass', type: :system do
           page.accept_confirm("で宜しいですか？") do
             click_on '登録'
           end
-          is_expected.to have_content '名前を入力してください'
+          is_expected.to have_content '失敗しました！'
         end
       end
       context 'success' do
@@ -27,7 +27,7 @@ RSpec.describe 'AdminPass', type: :system do
           page.accept_confirm("で宜しいですか？") do
             click_on '登録'
           end
-          is_expected.to have_content '新規登録しました！'
+          is_expected.to have_content '登録しました！'
         end
       end
     end

@@ -9,9 +9,9 @@ class HospitalLabelsController < ApplicationController
 
   def create
     @hospital_label = HospitalLabel.create(hospital_label_params)
-    @hospital_label.save
-    # 表示箇所がレンダリング範囲外の為ページ遷移後に表示されてしまう。
-    # ? flash[:notice] = t('notice.saved') : flash[:alert] = t('alert.false')
+    flash[:notice] =''
+    flash[:alert] = ''
+    @hospital_label.save ? flash[:notice] = t('notice.saved') : flash[:alert] = t('alert.false')
 
     @hospital_labels = HospitalLabel.all.order(name: :asc).page(params[:page]).per(20)
   end
