@@ -6,8 +6,7 @@ RSpec.describe 'AdminPass', type: :system do
   describe 'hospital_label' do
     subject { page }
     before do
-      sign_in admin_pass
-      visit hospitals_path
+      sign_in(admin_pass)
       page.execute_script("document.querySelectorAll('.fade').forEach(element => element.classList.remove('fade'));")
       click_on '管理メニュー'
       click_link '診療科一覧'

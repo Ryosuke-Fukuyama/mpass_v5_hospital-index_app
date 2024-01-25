@@ -5,10 +5,8 @@ RSpec.describe 'AdminPass', type: :system do
   let!(:hospital_label_1) { FactoryBot.create(:hospital_label, id: 1) }
   let!(:hospital_label_2) { FactoryBot.create(:second_hospital_label, id: 2) }
   let!(:hospital) { FactoryBot.create(:hospital, hospital_label_ids: [1]) }
-
   before do
-    visit hospitals_path
-    sign_in admin_pass
+    sign_in(admin_pass)
   end
 
   describe 'new hospital' do

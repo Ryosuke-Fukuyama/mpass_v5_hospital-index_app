@@ -74,4 +74,6 @@ RSpec.configure do |config|
       save_and_open_page
     end
   end
+
+  config.include SignInModule
 end

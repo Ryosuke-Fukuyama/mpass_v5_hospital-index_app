@@ -6,11 +6,9 @@ RSpec.describe 'AdminPass', js: true, type: :system do
   describe 'session' do
     subject { page }
     describe 'modal sign_in' do
-      before do
-        visit hospitals_path
-      end
       context 'Failure' do
         example 'no password' do
+          visit hospitals_path
           page.execute_script("document.querySelectorAll('.fade').forEach(element => element.classList.remove('fade'));")
           click_on '★'
           fill_in :session_password, with: ''
@@ -21,7 +19,7 @@ RSpec.describe 'AdminPass', js: true, type: :system do
     end
     xdescribe 'sign_out' do
       before do
-        sign_in admin_pass
+        sign_in(admin_pass)
       end
       it {
         page.execute_script("document.querySelectorAll('.fade').forEach(element => element.classList.remove('fade'));")
@@ -36,8 +34,7 @@ RSpec.describe 'AdminPass', js: true, type: :system do
   xdescribe 'edit' do
     subject { page }
     before do
-      sign_in admin_pass
-      visit hospitals_path
+      sign_in(admin_pass)
       page.execute_script("document.querySelectorAll('.fade').forEach(element => element.classList.remove('fade'));")
       click_button '管理メニュー'
       click_link '管理パス変更'
